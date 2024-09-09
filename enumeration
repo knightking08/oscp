@@ -8,11 +8,13 @@ Once your spreadsheet is built with the relevant information, it's time to try a
 
 ---
 
+
 ### [[21 - FTP]]
 
 * Check version using `searchsploit` for public exploits
 * Check for `anonymous` login
 * Download the directory `wget -m ftp://anonymous:anonymous@192.168.215.245`
+
 
 ### [[80 - WEB]]
 
@@ -24,13 +26,12 @@ if its WP:
 
 * Check version using `searchsploit` for public exploits (Traversal, SQLi, RCE)
 
-### [[445 smb]]
+### [[445 - SMB]]
 
 smbclient --no-pass -L //<IP> # Null user
 smbmap -u "username" -p "password" -H <IP> [-P <PORT>] #Creds
 
 smbclient --no-pass //<IP>/<Folder> copnnecvt with
-
 
 
 ### [[161 - SNMP]]
