@@ -1,12 +1,11 @@
 # 02. Footholds
 Once your spreadsheet is built with the relevant information, it's time to try and get a foothold.
 ---
+autorecon 192.168.234.229
 
-## What to look for
+sudo nmap -sV -O -A -Pn -p- -iL hosts.txt
 
-* Open each service note and dig deep starting with FTP, SNMP, SMB, HTTP
-
----
+./incursore.sh --host 192.168.202.145 -t all
 
 
 ### [[21 - FTP]]
@@ -26,6 +25,9 @@ if its WP:
 
 * Check version using `searchsploit` for public exploits (Traversal, SQLi, RCE)
 
+click every button on the website, can get in using sqli;
+
+
 ### [[445 - SMB]]
 
 smbclient --no-pass -L //<IP> # Null user
@@ -40,3 +42,5 @@ smbclient --no-pass //<IP>/<Folder> copnnecvt with
 - Try to get useful information from accessible communities
 	- `snmpwalk -v 1 -c public 192.168.194.149 NET-SNMP-EXTEND-MIB::nsExtendObjects`
 	- `snmpwalk -v2c -c public 192.168.194.149 | grep <string>`
+
+
